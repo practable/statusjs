@@ -1,5 +1,7 @@
 <script setup>
   import { useStatusStore } from '@/stores/status'
+  import ExperimentItem from '@/components/ExperimentItem.vue'
+  
   const store = useStatusStore()
   
   async function load() {
@@ -40,11 +42,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="expt in store.status" :key="expt.topic_name">
+                <!-- <tr v-for="expt in store.status" :key="expt.topic_name">
                     <td>{{expt.topic_name}}</td>
                     <td>{{expt.healthy}}</td>
-                    <td>{{expt.available}}</td>
-                </tr>
+                    <td>{{expt.available}}</td> 
+                </tr> !-->
+				<ExperimentItem	v-for="item in store.status"
+								:status=item
+								/>
             </tbody>
         </table>
     </div>    
