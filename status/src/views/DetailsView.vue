@@ -3,6 +3,6 @@
 
 <template>
   <main>
-    <h1>The current status summary goes here</h1>
+    <h1>The detailed status goes here</h1>
   </main>
 </template>
