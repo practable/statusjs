@@ -36,18 +36,18 @@
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Healthy</th>
-                    <th>Available</th>
+                  <th>Name</th>
+                  <th>A</th>
+				  <th>H</th>
+				  <th>J</th>
+				  <th>#</th>
+				  <th>Streams OK</th>
+				  <th>Streams Missing</th>
+				  <th></th>
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr v-for="expt in store.status" :key="expt.topic_name">
-                    <td>{{expt.topic_name}}</td>
-                    <td>{{expt.healthy}}</td>
-                    <td>{{expt.available}}</td> 
-                </tr> !-->
-				<ExperimentItem	v-for="item in store.status"
+ 				<ExperimentItem	v-for="item in store.status"
 								:status=item
 								/>
             </tbody>
