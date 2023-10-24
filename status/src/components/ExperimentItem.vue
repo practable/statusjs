@@ -7,6 +7,9 @@
   props: ['status'],
   setup(props) {
       return {
+
+  invalid: computed(() => { return props.status === undefined}),
+		  
   streamsOk: computed(() => {
 
   let ok=[]
@@ -52,7 +55,11 @@
   return missing.join(", ")
 
   }),
-
+		  name: computed(() => { }),
+		  available: computed(() => { }),
+		  healthy: computed(() => { }),
+		  jumpOk: computed(() => { }),
+		  eventCount: computed(() => { }),
   
       }
     }
@@ -62,7 +69,30 @@
 
 
 <template>
-  <tr>
+
+  <tr v-if="invalid">
+	<td width="8%" class="red">null</td>
+	<td width="3%"> 
+     <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" width="50%">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+	 </svg>
+	</td>
+	<td width="3%"> 
+     <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" width="50%">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+	 </svg>
+	</td>
+	<td width="3%"> 
+     <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" width="50%">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+	 </svg>
+	</td>	
+	<td width="3%">0</td>
+	<td class="green"></td>
+	<td class="red">invalid record</td>
+  </tr>
+  
+  <tr v-else>
 	<td width="8%" :class="(status.available)?'green':'red'">{{status.topic_name}}</td>
 	<td width="3%">
 
