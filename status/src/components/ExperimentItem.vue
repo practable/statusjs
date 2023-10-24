@@ -64,12 +64,13 @@
       }
     }
   })
-  
+
+
 </script>
 
 
 <template>
-
+ 
   <tr v-if="invalid">
 	<td width="8%" class="red">null</td>
 	<td width="3%"> 

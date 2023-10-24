@@ -1,6 +1,7 @@
 <script setup>
   import { useStatusStore } from '@/stores/status'
   import ExperimentItem from '@/components/ExperimentItem.vue'
+  import router from "@/router";
   
   const store = useStatusStore()
   
@@ -20,7 +21,13 @@
 }
 
   load();
+
+  function seeDetails(item) {
+    console.log("click", item.topic_name)
   
+      router.push({ name: 'details', params: { id: item.topic_name } })
+      
+  }
 </script>
 
 <template>
@@ -49,6 +56,7 @@
             <tbody>
  				<ExperimentItem	v-for="item in store.status"
 								:status=item
+								v-on:click="seeDetails(item)"
 								/>
             </tbody>
         </table>
